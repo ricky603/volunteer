@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="volunteer_tree" model="ir.ui.view">
+		<field name="name">volunteer.tree</field>
+		<field name="model">volunteer</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="volunteer_name" />
+				<field name="volunteer_email" />
+				<field name="volunteer_gender" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="volunteer_form" model="ir.ui.view">
+		<field name="name">volunteer.form</field>
+		<field name="model">volunteer</field>
+		<field name="arch" type="xml">
+			<form string="Volunteers">
+				<sheet>
+					<group>
+						<group string='Personal Information'>
+							<field name="volunteer_name" />
+							<field name="volunteer_date_of_birth" />
+							<field name="volunteer_gender" />
+							<field name="volunteer_marital" />
+							<field name="volunteer_race" />
+							<field name="volunteer_religion" />
+						</group>
+						<group string='Address'>
+							<field name="volunteer_blk" />
+							<field name="volunteer_unit_no" />
+							<field name="volunteer_street_name" />
+							<field name="volunteer_postal_code" />
+						</group>
+				</group>
+				<group>
+					<group>
+						<field name="volunteer_citizenship" />
+						<field name="volunteer_nationality" />
+						<field name="volunteer_occupation" />
+						<field name="volunteer_nric_no" />
+					</group>
+					<group string="Contact">
+						<field name="volunteer_phone_number" />
+						<field name="volunteer_email" />
+						<field name="volunteer_transportation" />
+					</group>
+				</group>
+				<group>
+					<group>
+						<field name="volunteer_employer_name" />
+						<field name="volunteer_employer_address" />
+					</group>
+					<group>
+						<field name="volunteer_language" />
+						<field name="volunteer_degree" />
+						<field name="volunteer_experience" />
+						<field name="volunteer_area_of_interest" widget="many2many_checkboxes" />
+					</group>
+				</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_volunteer" model="ir.actions.act_window">
+		<field name="name">Volunteers</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">volunteer</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Create First Volunteer
+			</p>
+		</field>
+	</record>
+
+	<menuitem id="volunteer_root" name="Volunteer Registration" sequence="0" />
+	<menuitem id="volunteer" name="Volunteers" parent="volunteer_root" action="action_volunteer" />
+</odoo>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="volunteer_webform" model="website.menu">
+    <field name="name">Volunteer Registration</field>
+    <field name="url">/volunteer_webform</field>
+    <field name="parent_id" ref="website.main_menu" />
+    <field name="sequence" type="int">80</field>
+  </record>
+
+  <template id="volunteer_registration" name="Volunteer Registration">
+    <t t-call="website.layout">
+      <div id="wrap">
+        <div class="oe_structure">
+          <div class="container">
+            <form role="form" action="/create/webvolunteer" method="POST">
+              <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+              <h2>Basic Info</h2>
+              <br/>
+              <div class="form-group">
+                <label for="volunteer_name" class="control-label">Name</label>
+                <input type="text" name="volunteer_name" t-att-value="volunteer_name" id="volunteer_name" class="form-control input-sm" placeholder="e.g. John Doe" required="Required" />
+              </div>
+              <div class="form-group">
+                <label for="volunteer_date_of_birth" class="control-label">Date of Birth</label>
+                <input type="date" name="volunteer_date_of_birth" t-att-value="volunteer_date_of_birth" id="volunteer_date_of_birth" class="form-control input-sm" required="Required" />
+              </div>
+              <div class="form-group">
+                <div>
+                  <label class="control-label">Gender</label>
+                </div>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="male" value="Male" />
+                  Male
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="female" value="Female" />
+                  Female
+                </label>
+              </div>
+              <div class="form-group">
+                <div>
+                  <label class="control-label">Marital Status</label>
+                </div>
+                <label class="radio-inline">
+                  <input type="radio" name="marital_status" id="single" value="Single" />
+                  Single
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="marital_status" id="married" value="Married" />
+                  Married
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="marital_status" id="divorced" value="Divorced" />
+                  Divorced
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="marital_status" id="widowed" value="Widowed" />
+                  Single
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="race" class="control-label">Race</label>
+                <input type="text" name="race" t-att-value="race" id="race" class="form-control input-sm" required="Required" />
+              </div>
+              <div class="form-group">
+                <label for="religion" class="control-label">Religion</label>
+                <input type="text" name="religion" t-att-value="religion" id="religion" class="form-control input-sm" required="Required" />
+              </div>
+              <br />
+              <h2>Address</h2>
+              <br />
+              <div class="form-group">
+                <div>
+                  <label for="blk">Blk</label>
+                </div>
+                <input type="text" name="blk" class="form-control input-sm" id="blk" />
+              </div>
+              <div class="form-group">
+                <div>
+                  <label for="unit_no">Unit No.</label>
+                </div>
+                <input type="text" name="unit_no" class="form-control input-sm" id="unit_no" />
+              </div>
+              <div class="form-group">
+                <div>
+                  <label for="street_name">Street Name</label>
+                </div>
+                <input type="text" name="street_name" class="form-control input-sm" id="street_name" />
+              </div>
+              <div class="form-group">
+                <div>
+                  <label for="postal_code">Postal Code</label>
+                </div>
+                <input type="text" name="postal_code" class="form-control input-sm" id="postal_code" />
+              </div>
+              <br />
+              <h2>Citizenship</h2>
+              <br />
+              <div class="form-group">
+                <label for="citizenship">Citizenship</label>
+                <input type="text" name="citizenship" class="form-control input-sm" id="citizenship" />
+              </div>
+              <div class="form-group">
+                <label for="nationality">Nationality</label>
+                <input type="text" name="nationality" class="form-control input-sm" id="nationality" />
+              </div>
+              <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" name="occupation" class="form-control input-sm" id="occupation" />
+              </div>
+              <div class="form-group">
+                <label for="nric_no">NRIC No.</label>
+                <input type="text" name="nric_no" class="form-control input-sm" id="nric_no" />
+              </div>
+              <br />
+              <h2>Contact</h2>
+              <br />
+              <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" name="phone_number" class="form-control input-sm" id="phone_number" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" class="form-control input-sm" id="email" />
+              </div>
+              <div class="form-group">
+                <label for="transportation">Transportation</label>
+                <input type="text" name="transportation" class="form-control input-sm" id="transportation" />
+              </div>
+              <br />
+              <h2>Employer</h2>
+              <br />
+              <div class="form-group">
+                <label for="employer_name">Employer Name</label>
+                <input type="text" name="employer_name" class="form-control input-sm" id="employer_name" />
+              </div>
+              <div class="form-group">
+                <label for="employer_address">Employer Address</label>
+                <input type="text" name="employer_address" class="form-control input-sm" id="employer_address" />
+              </div>
+              <br />
+              <h2>Experience</h2>
+              <br />
+              <div class="form-group">
+                <label for="language">Language</label>
+                <input type="text" name="language" class="form-control input-sm" id="language" />
+              </div>
+              <div class="form-group">
+                <label for="degree">Degree</label>
+                <select name="degree" id="degree" class="form-control input-sm link-style">
+                  <t t-foreach="volunteer_degree" t-as="degree">
+                    <option t-esc="degree.name" t-att-value="degree.id" />
+                  </t>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="experience">Experience in volunteer work / Community service</label>
+                <textarea name="experience" id="experience" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <div>
+                  <label for="area_of_interest">Area Of Interest</label>
+                </div>
+                <div class="form-group">
+                  <t t-foreach="volunteer_interest" t-as="interest">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" name="area_of_interest" id="interest.name" t-att-value="interest.id" t-esc="interest.name" />
+                    </label>
+                  </t>
+                </div>
+              </div>
+              <div class="clearfix oe_login_buttons">
+                <button type="submit" class="btn btn-primary pull-left">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+  <template id="success_form" name="Customer Form Successfully Submitted">
+    <t t-call="website.layout">
+      <div id="wrap">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="alert alert-success">
+                            Registered Succesfully.
+                        </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

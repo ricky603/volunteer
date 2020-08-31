@@ -1,0 +1,36 @@
+<odoo>
+	<data noupdate="1">
+		<record model="volunteer.degree" id="degree_graduate">
+			<field name="name">Graduate</field>
+			<field name="sequence">1</field>
+		</record>
+		<record model="volunteer.degree" id="degree_bachelor">
+			<field name="name">Bachelor Degree</field>
+			<field name="sequence">2</field>
+		</record>
+		<record model="volunteer.degree" id="degree_master">
+			<field name="name">Master Degree</field>
+			<field name="sequence">3</field>
+		</record>
+		<record model="volunteer.degree" id="degree_doctoral">
+			<field name="name">Master Doctoral</field>
+			<field name="sequence">4</field>
+		</record>
+
+		<record model="volunteer.interest" id="interest_tutoring">
+			<field name="name">Tutoring Children</field>
+		</record>
+		<record model="volunteer.interest" id="interest_youth">
+			<field name="name">Family</field>
+		</record>
+		<record model="volunteer.interest" id="interest_events">
+			<field name="name">Events</field>
+		</record>
+		<record model="volunteer.interest" id="interest_fundraising">
+			<field name="name">Fundraising</field>
+		</record>
+		<record model="volunteer.interest" id="interest_admin">
+			<field name="name">Admin and Logistic Support</field>
+		</record>
+	</data>
+</odoo>
